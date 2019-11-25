@@ -2,13 +2,13 @@
 
 # Introduction
 
-Datapane is being developed as a hybrid application, also known as an MPA, as opposed to an SPA.
+Datapane is being developed as a hybrid application, also known as an enhanced MPA, as opposed to an SPA.
 
 This approach is used by many larger websites, including both GitHub and Facebook, allowing us to take advantage of a robust BE ecosystem, whilst adding FE-rendered components as needed to improve interactivity.
 
 This is simpler and faster in many ways for startups, however comes with it's own challenges (see [https://www.gregnavis.com/articles/the-architecture-no-one-needs.html](https://www.gregnavis.com/articles/the-architecture-no-one-needs.html) for an overview of the pros/cons involved).
 
-This challenge involves building a small MPA using a combination of a back-end stack (e.g. Django, Rails, etc.) combined with your front-end technology of choice, (e.g. React, Vue, Angular, etc.) from scratch to explore the design and architecture of such an application.
+This challenge involves building a small hybrid-MPA using a combination of a back-end stack (e.g. Django, Rails, etc.) combined with your front-end technology of choice, (e.g. React, Vue, Angular, etc.) from scratch to explore the design and architecture of such an application.
 
 # Task
 
@@ -62,7 +62,7 @@ This app is comprised of several individual components - you can build these com
 ### Optional Requirements
 
 - Styling, via CSS, is preferable but not required, however if you do style your app, then please make sure that both BE and FE- rendered components look similar
-- Rendering new pages may cause flickering during reload, you can attempt resolving this in several ways, including, network optimisations and caching, making use of turbolinks /  stimulus.js / intercooler.js / etc., and other approaches
+- Rendering new pages may cause flickering during reload, you can attempt resolving this in several ways, including, network optimisations and caching, making use of turbolinks /  stimulus.js / intercooler.js / etc., and other approaches (see https://matix.io/using-asynchronous-requests-to-mimic-single-page-apps-in-django/)
 
 # Review
 
