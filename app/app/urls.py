@@ -20,7 +20,7 @@ from web.views import HomeView, EntryFormView, CSVUploaderView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
-    path('entry_form/', EntryFormView.as_view(), name="entry_form"),
+    path('entries/', EntryFormView.as_view(), name="entries"),
     path('csv_upload/', CSVUploaderView.as_view(), name="csv_uploader"),
     path('admin/', admin.site.urls),
 ]

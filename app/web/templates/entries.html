@@ -5,7 +5,24 @@
 {% endblock %}
 
 {% block content %}
-<h2>Entry Form View</h2>
-<p>form will be here</p>
-<p>here will be a list of enrties</p>
+</br>
+<h2>Entry Form</h2>
+<form action="{% url "entries" %}" method="post">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+</br>
+
+<h3>Entry List</h3>
+<ul class="list-group">
+    {% for entry in object_list %}
+    <li class="list-group-item">{{ entry.name }}, {{ entry.age }}, {{ entry.email }}</li>
+    {% endfor %}
+</ul>
 {%  endblock %}
