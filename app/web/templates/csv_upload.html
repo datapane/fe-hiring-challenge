@@ -5,7 +5,79 @@
 {% endblock %}
 
 {% block content %}
-<h2>CSV Uploader View</h2>
-<p>form to upload a CSV<p>
-<p>list of csv entries</p>
+<h2>CSV Uploader</h2>
+
+<div id="app">
+    <form enctype="multipart/form-data"
+        action="{% url 'csv_uploader' %}"
+        method="post"
+        @submit.prevent="sendCsv"
+        >
+        <div class="form-group">
+            <input type="file" name="csvFile">
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <ul class="list-group">
+        <li class="list-group-item" v-for="item in entries" :key="item.id">
+            <span v-for="part in item">
+                [[ part ]],
+            </span>
+        </li>
+    </ul>
+</div>
 {%  endblock %}
+
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>                        
+<script src="https://unpkg.com/papaparse@5.1.0/papaparse.min.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ["[[","]]"],
+        data: {
+            name: 'Arsen',
+            entries: []
+        },
+        methods: {
+            sendCsv(e){
+                const uploadedFile = e.target[0].files[0];
+                const csvUploaderUrl = {% url 'csv_uploader' %};
+                if (uploadedFile){
+                        if (uploadedFile.name.endsWith('.csv')){
+                            let formData = new FormData();
+                            formData.append("file", uploadedFile)
+                            formData.append("filename", uploadedFile.name)
+                            axios({
+                                url: csvUploaderUrl, 
+                                method: 'post',
+                                data: formData,
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                },
+                            }).then(
+                                response =>{
+                                    const parsedCsv = Papa.parse(response.data);
+                                    this.entries = parsedCsv.data;
+                                }  
+                            ) .catch(
+                                error => console.log(error)
+                            );
+                        }else{
+                            alert("Please upload only CSV files (they contain .csv file extension)")
+                        }
+                }else{
+                    alert("Please upload a file")
+                }
+
+            }
+        }
+    })
+</script>
+{% endblock %}
+
