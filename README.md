@@ -1,5 +1,7 @@
 # Full Stack Django Hiring Challenge
 
+Instructions of how to run this app are in the `instructions.md` file
+
 # Introduction
 
 Datapane is being developed as a hybrid application, also known as an MPA, as opposed to an SPA.
