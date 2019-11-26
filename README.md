@@ -44,6 +44,7 @@ This app is comprised of several individual components - you can build these com
         - This form should validate the input in some way
     1. A table that displays the list of all entries added to the server via the 1st component
         - This table is stored on the BE and should be reproduced upon navigating back to the page
+        - The contents of this table are not linked to the CSV file in the previous page
 
 ## Technologies
 
@@ -55,6 +56,7 @@ This app is comprised of several individual components - you can build these com
 ## Requirements
 
 - You are free to choose either of your chosen FE or BE technology to build each component, however both must be used at least once
+- Each component should be independent and initalised separately, i.e. by calling `ReactDOM.render` or similar for each component
 - Multi-user support and log-in is NOT required for this project
 - The app should behave like traditional content-based web site - i.e. back button should work, history should be present, etc.
 - Instructions should be provided on how to build / bundle / start the system.
