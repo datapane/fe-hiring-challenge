@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from web.views import HomeView
+from web.views import HomeView, EntryFormView, CSVUploaderView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
+    path('entry_form/', EntryFormView.as_view(), name="entry_form"),
+    path('csv_upload/', CSVUploaderView.as_view(), name="csv_uploader"),
     path('admin/', admin.site.urls),
 ]
