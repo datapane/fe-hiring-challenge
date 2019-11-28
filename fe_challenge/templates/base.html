@@ -1,0 +1,40 @@
+{% load static %} {% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <script>
+      window.props = {{ react_props|safe }};
+      window.react_mount = document.getElementById('react');
+    </script>
+    <header>
+      <h1>Datapane Challenge</h1>
+    </header>
+    <nav>
+      <ul>
+        <a href="/"><li>Home</li></a>
+        <a href="csv"><li>CSV Uploader</li></a>
+        <a href="form"><li>Entry Form</li></a>
+      </ul>
+      <div class="handle">
+        <p class="menu">Menu</p>
+        <div class="menu_icon">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </nav>
+    <div id="react"></div>
+    {% render_bundle page_name %}
+  </body>
+</html>
