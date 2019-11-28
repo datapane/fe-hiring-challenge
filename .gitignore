@@ -1,0 +1,6 @@
+.DS_Store
+webpack-stats.json
+node_modules/
+fe_challenge/static/bundles/
+fe_challenge/__pycache__/
+mpa/__pycache__/
