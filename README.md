@@ -58,7 +58,7 @@ This app is comprised of several individual components - you can build these com
 
 - You are free to choose either of your chosen FE or BE technology to build each component, however both must be used at least once
 - Each component on each page should be independent and initalised separately, i.e. by calling `ReactDOM.render` or similar for each component
-- The components state should comne via the BE as the single source of truth, and there should not be any FE state management solution used, e.g. Redux, MobX, etc.
+- The components state should come via the BE as the single source of truth, and there should not be any FE state management solution used, e.g. Redux, MobX, etc.
 - Multi-user support and log-in is NOT required for this project
 - The app should behave like traditional content-based web site - i.e. back button should work, history should be present, etc.
 - Instructions should be provided on how to build / bundle / start the system.
