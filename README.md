@@ -1,5 +1,28 @@
 # Full Stack Django Hiring Challenge
 
+# Installation instructions
+
+- Clone the repository
+- Create a new python(3.6+) virtual environment and activate it
+- Go to `assignment/`
+- Install dependencies for backend
+```bash
+pip install -r requirements.txt
+```
+- Install dependencies for frontend
+```bash
+npm install
+```
+- Build the bundle
+```bash
+npm run watch
+```
+- Open a new terminal window
+```bash
+python manage.py runserver
+```
+- The project is live at 127.0.0.1:8000
+
 # Introduction
 
 Datapane is being developed as a hybrid application, also known as an enhanced MPA, as opposed to an SPA.
