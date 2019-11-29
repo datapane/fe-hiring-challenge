@@ -35,7 +35,8 @@ This app is comprised of several individual components - you can build these com
 - This page has 2 components
     1. A file uploader, that allows users to select a CSV to upload to the server (the repo includes a sample CSV to test with)
     1. A viewer component, that displays the contents of the CSV sent to the server in the 1st component
-        - The viewer should be able to handle displaying larger CSVs, i.e > 1000 rows, in an easy-to-navigate manner
+        - The CSV should be parsed and presented as a table
+        - The table viewer should be able to handle displaying larger CSVs, i.e > 1000 rows, in an easy-to-navigate manner
 
 ### Entry Form Page
 
@@ -56,7 +57,8 @@ This app is comprised of several individual components - you can build these com
 ## Requirements
 
 - You are free to choose either of your chosen FE or BE technology to build each component, however both must be used at least once
-- Each component should be independent and initalised separately, i.e. by calling `ReactDOM.render` or similar for each component
+- Each component on each page should be independent and initalised separately, i.e. by calling `ReactDOM.render` or similar for each component
+- The components state should comne via the BE as the single source of truth, and there should not be any FE state management solution used, e.g. Redux, MobX, etc.
 - Multi-user support and log-in is NOT required for this project
 - The app should behave like traditional content-based web site - i.e. back button should work, history should be present, etc.
 - Instructions should be provided on how to build / bundle / start the system.
