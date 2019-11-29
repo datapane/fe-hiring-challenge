@@ -1,0 +1,12 @@
+{% load bootstrap4 %}
+<h3>Hello I am a Django form</h3>
+<form method="post" enctype="multipart/form-data" ic-post-to="{% url 'core:upload' %}" ic-target="#df-table">
+{% csrf_token %}
+{% bootstrap_form form %}
+{% bootstrap_button "Upload" button_type="submit" button_class="btn-primary" %}
+</form>
+<div id="df-table">
+{% if df_table %}
+{% include 'core/csv_table.html' %}
+{% endif %}
+</div>
