@@ -1,0 +1,7 @@
+node_modules/
+react/js/static/bundles/
+__pycache__/
+*.pyc
+webpack-stats.json
+.idea/
+
