@@ -1,3 +1,5 @@
+<p align="center"><img src="datapane-screenshot.png" alt="beatserver"></p>
+
 # Datapane Coding Challenge
 
 My goal here is to achieve full mpa. 
