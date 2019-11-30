@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<article class="markdown-body entry-content p-5" itemprop="text"><h1><a id="user-content-full-stack-django-hiring-challenge" class="anchor" aria-hidden="true" href="#full-stack-django-hiring-challenge"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full Stack Django Hiring Challenge</h1>
+    <p>Instructions of how to run this app are in the <code>instructions.md</code> file</p>
+    <h1><a id="user-content-introduction" class="anchor" aria-hidden="true" href="#introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h1>
+    <p>Datapane is being developed as a hybrid application, also known as an MPA, as opposed to an SPA.</p>
+    <p>This approach is used by many larger websites, including both GitHub and Facebook, allowing us to take advantage of a robust BE ecosystem, whilst adding FE-rendered components as needed to improve interactivity.</p>
+    <p>This is simpler and faster in many ways for startups, however comes with it's own challenges (see <a href="https://www.gregnavis.com/articles/the-architecture-no-one-needs.html" rel="nofollow">https://www.gregnavis.com/articles/the-architecture-no-one-needs.html</a> for an overview of the pros/cons involved).</p>
+    <p>This challenge involves building a small MPA using a combination of a back-end stack (e.g. Django, Rails, etc.) combined with your front-end technology of choice, (e.g. React, Vue, Angular, etc.) from scratch to explore the design and architecture of such an application.</p>
+    <h1><a id="user-content-task" class="anchor" aria-hidden="true" href="#task"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Task</h1>
+    <p>For this task we'll be building a very simple webapp with 3 main pages and a navbar.</p>
+    <p>This app is comprised of several individual components - you can build these components using either FE or BE rendering, however must use each technology at least once.</p>
+    <h2><a id="user-content-pages--components" class="anchor" aria-hidden="true" href="#pages--components"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pages &amp; Components</h2>
+    <h3><a id="user-content-navbar" class="anchor" aria-hidden="true" href="#navbar"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navbar</h3>
+    <ul>
+        <li>The navbar is persistent at the top of the page and has 3 navigation options
+            <ul>
+                <li>Home (the default)</li>
+                <li>CSV Uploader</li>
+                <li>Entry Form</li>
+            </ul>
+        </li>
+        <li>This navbar is to be rendered by the backend</li>
+    </ul>
+    <h3><a id="user-content-home-page" class="anchor" aria-hidden="true" href="#home-page"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Home Page</h3>
+    <ul>
+        <li>This page has a single component that just displays "Lorem Ipsum"</li>
+    </ul>
+    <h3><a id="user-content-csv-uploader-page" class="anchor" aria-hidden="true" href="#csv-uploader-page"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSV Uploader Page</h3>
+    <ul>
+        <li>This page has 2 components
+            <ol>
+                <li>A file uploader, that allows users to select a CSV to upload to the server (the repo includes a sample CSV to test with)</li>
+                <li>A viewer component, that displays the contents of the CSV sent to the server in the 1st component
+                    <ul>
+                        <li>The viewer should be able to handle displaying larger CSVs, i.e &gt; 1000 rows, in an easy-to-navigate manner</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <h3><a id="user-content-entry-form-page" class="anchor" aria-hidden="true" href="#entry-form-page"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entry Form Page</h3>
+    <ul>
+        <li>This page has 2 components
+            <ol>
+                <li>A form the allows users to enter a name, age, and email of an individual
+                    <ul>
+                        <li>This form should validate the input in some way</li>
+                    </ul>
+                </li>
+                <li>A table that displays the list of all entries added to the server via the 1st component
+                    <ul>
+                        <li>This table is stored on the BE and should be reproduced upon navigating back to the page</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <h2><a id="user-content-technologies" class="anchor" aria-hidden="true" href="#technologies"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Technologies</h2>
+    <ul>
+        <li>A traditional BE stack that supports generating both HTML templates and JSON APIs (we highly recommend Django and DRF as we use these ourselves, however others, except NodeJS/Express, are acceptable)</li>
+        <li>A modern FE framework (e.g. React, Vue.js, Angular, etc., - we highly recommend React as we use it ourselves)</li>
+        <li>Build systems and scripts of your choice, e.g. typescript, FE bundlers, etc.</li>
+        <li>Any FE and BE libraries you may find useful to help your task, e.g. a CSV parsing library - we prioritise using existing libraries to accomplish tasks rather than building in-house,</li>
+    </ul>
+    <h2><a id="user-content-requirements" class="anchor" aria-hidden="true" href="#requirements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+    <ul>
+        <li>You are free to choose either of your chosen FE or BE technology to build each component, however both must be used at least once</li>
+        <li>Multi-user support and log-in is NOT required for this project</li>
+        <li>The app should behave like traditional content-based web site - i.e. back button should work, history should be present, etc.</li>
+        <li>Instructions should be provided on how to build / bundle / start the system.</li>
+    </ul>
+    <h3><a id="user-content-optional-requirements" class="anchor" aria-hidden="true" href="#optional-requirements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional Requirements</h3>
+    <ul>
+        <li>Styling, via CSS, is preferable but not required, however if you do style your app, then please make sure that both BE and FE- rendered components look similar</li>
+        <li>Rendering new pages may cause flickering during reload, you can attempt resolving this in several ways, including, network optimisations and caching, making use of turbolinks /  stimulus.js / intercooler.js / etc., and other approaches</li>
+    </ul>
+    <h1><a id="user-content-review" class="anchor" aria-hidden="true" href="#review"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review</h1>
+    <p>Please don't spend more than 2-4 hours on this - we're looking to see how you approached the problem and the decisions made rather than a complete solution. This should be a fun challenge rather than a stressful endeavour.</p>
+    <p>There is no right answer as such, we will mainly be looking at code quality, software architecture skills, completeness of the solution from a software engineering perspective, and clarity of thought.</p>
+    <p>Once completed, please create a PR containing your work, send us an email, and book a second follow-up interview via angellist (<a href="https://angel.co/schedule/mandeep-gill-2" rel="nofollow">https://angel.co/schedule/mandeep-gill-2</a>).</p>
+</article>
+{%  endblock %}

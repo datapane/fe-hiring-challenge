@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}
+User Signup Page
+{% endblock %}
+
+{% block content %}
+<div id="user-register-form"></div>
+
+<h3>User List</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in object_list %}
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+    <script type="text/babel">
+
+  class UserForm extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+
+      }
+      this.handleInputChange = this.handleInputChange.bind(this);
+      this.onFormSubmit = this.onFormSubmit.bind(this);
+    }
+
+    onFormSubmit(evt){
+      evt.preventDefault();
+      //When real API will be added it will move inside the API call promise
+      this.setState({
+        fileUploaded: true
+      });
+
+      let url = '{% url 'submit_user_detail' %}';
+      const config = {
+        headers: {
+          'content-type': 'application/json'
+        }
+      };
+      return axios.post(url, this.state ,config)
+        .then((response)=>{
+        console.log(response);
+        alert('Saved successfully')
+        location.reload()
+      })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          alert('An error occured')
+        })
+    }
+
+    handleInputChange(obj){
+      let state = {...this.state};
+      Object.assign(state, obj);
+      this.setState(state);
+    }
+
+
+    render() {
+      return (
+              <div className="container">
+
+                  <div className="card bg-light">
+                      <article className="card-body mx-auto" >
+                          <h4 className="card-title mt-3 text-center">Create User</h4>
+                          <form onSubmit={this.onFormSubmit}  data-toggle="validator">
+                              <div className="form-group input-group">
+                                  <div className="input-group-prepend">
+                                      <span className="input-group-text"> <i className="fa fa-user"></i> </span>
+                                  </div>
+                                  <input  className="form-control" placeholder="Full name" type="text" required
+                                          onChange={(evt) => {
+                                            this.handleInputChange({
+                                              name: evt.target.value
+                                            })
+                                          }}/>
+                              </div>
+                              <div className="form-group input-group">
+                                  <div className="input-group-prepend">
+                                      <span className="input-group-text"> <i className="fa fa-envelope"></i> </span>
+                                  </div>
+                                  <input  className="form-control" placeholder="Email address" type="email" required
+                                          onChange={(evt) => {
+                                            this.handleInputChange({
+                                              email: evt.target.value
+                                            })
+                                          }}/>
+                              </div>
+                              <div className="form-group input-group">
+                                  <div className="input-group-prepend">
+                                      <span className="input-group-text"> <i className="fa fa-child"></i> </span>
+                                  </div>
+                                  <input  className="form-control" placeholder="Age" type="number" required
+                                          onChange={(evt) => {
+                                            this.handleInputChange({
+                                              age: evt.target.value
+                                            })
+                                          }}/>
+                              </div>
+                              <div className="form-group">
+                                  <button type="submit" className="btn btn-primary btn-block"> Save </button>
+                              </div>
+                          </form>
+                      </article>
+                  </div>
+
+              </div>
+      )
+    }
+  }
+  ReactDOM.render(
+          <UserForm />,
+    document.getElementById('user-register-form')
+  );
+</script>
+
+{%  endblock %}
