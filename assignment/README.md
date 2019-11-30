@@ -2,11 +2,13 @@
 
 My goal here is to achieve full mpa. 
 
+```
 datapane -> Main Django ( backend ) project
 resources -> ( csvuploader, entryform, loremipsum )
 csvuloader -> nextjs, reactjs
 entryform -> starlette
 loremipsum -> flask
+```
 
 How to run:
 
