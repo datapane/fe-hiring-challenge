@@ -9,4 +9,6 @@ cd backend
 
 pipenv --three && pipenv install
 
+pipenv run python manage.py migrate
+
 cd ..
