@@ -6,7 +6,7 @@ Datapane is being developed with a typical FE / BE split, where,
 - the FE is an SPA built using Vue3, Typescript, Pinia, Quasar, and more
 - the BE is a Django / Python web app that serves REST APIs
 
-This challenge involves building a Vue component of the type we have to build and implement within the Datapane SPA for use within the BE.
+This challenge involves building a Vue component of the type we have to build and implement within the Datapane SPA for use within the BE. As an early-stage startup, we often have to work without fully complete specs and provide opportunities for developers to make their own choices rather than micromanage - we attempts to recreate that process here.
 
 # Task
 
