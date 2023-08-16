@@ -34,15 +34,14 @@ Some sample ideas could be, but not limited to,
 ## Requirements
 
 - Whilst we recommend using a CSS or Component library, we advise excising judgment in not picking an existing `cron`-like component off-the-shelf that implements the task entirely
+- The component should be styled well and look complete
 - The component should be standalone and presented via Storybook or Historie
 - Instructions should be provided on how to build / bundle / start the system
 
-### Optional Requirements
-
-- Styling, via CSS, is preferable but not required
-- This task is deliberately open-ended, we encourage experimentation and extension of the component and concept, this may include,
 
 # Review
+
+This task is deliberately open-ended, we encourage experimentation and extension of the component and concept.
 
 Please don't spend more than 2-4 hours on this - we're looking to see how you approached the problem and the decisions made rather than a complete solution. This should be a fun challenge rather than a stressful endeavor.
 
