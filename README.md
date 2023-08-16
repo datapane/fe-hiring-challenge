@@ -37,7 +37,7 @@ Some sample ideas could be, but not limited to,
 - The component should be styled well and look complete
 - The component should be standalone and presented via Storybook or Historie
 - Instructions should be provided on how to build / bundle / start the system
-
+- Comments, tests, and documentation are strongly encouraged
 
 # Review
 
