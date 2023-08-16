@@ -6,11 +6,11 @@ Datapane is being developed with a typical FE / BE split, where,
 - the FE is an SPA built using Vue3, Typescript, Pinia, Quasar, and more
 - the BE is a Django / Python web app that serves REST APIs
 
-This challenge involves building a Vue component of the type we have to build and implement within the Datapane SPA for use within the BE. As an early-stage startup, we often have to work without fully complete specs and like to provide opportunities for developers to make their own choices rather than micromanage - we attempts to recreate that process here.
+This challenge involves building a Vue component of the type we have to build and implement within the Datapane SPA for use within the BE. As an early-stage startup, we often have to work without fully complete specs and like to provide opportunities for developers to make their own choices rather than micromanage - we attempt to recreate that process here.
 
 # Task
 
-For this task we'll be building a single Vue component that allows a user to set a reoccurring date and time for an event to occur, such as triggering an automated report generation event.
+For this task we'll be building a single Vue component that allows a user to set a recurring date and time for an event to occur, such as triggering an automated report generation event.
 
 This component should accept the schedule using a `cron`-like textual entry format.
 
@@ -33,7 +33,7 @@ Some sample ideas could be, but not limited to,
 
 ## Requirements
 
-- Whilst we recommend using a CSS or Component library, we advise excising judgment in not picking an existing `cron`-like component off-the-shelf that implements the task entirely
+- Whilst we recommend using a CSS or Component library, we advise exercising judgment in not picking an existing `cron`-like component off-the-shelf that implements the task entirely
 - The component should be styled well and look complete
 - The component should be standalone and presented via Storybook or Historie
 - Instructions should be provided on how to build / bundle / start the system
