@@ -6,6 +6,23 @@ import CronInput from '../components/CronInput.vue';
 const meta = {
     component: CronInput,
     tags: ['autodocs'],
+    argTypes: {
+        to: {
+            description: 'The API endpoint to submit the schedule request to',
+        },
+        defaultCron: {
+            description: 'The default cron time to display in the cron input',
+        },
+        defaultScript: {
+            description: 'The default script path or job name to display in the job input',
+        },
+        showNext: {
+            description: 'Displays the time of the next expected scheduled task',
+        },
+        showText: {
+            description: 'Displays the cron time in human-readable text',
+        },
+    },
 } satisfies Meta<typeof CronInput>;
 
 export default meta;
