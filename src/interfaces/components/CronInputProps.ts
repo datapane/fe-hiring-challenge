@@ -1,3 +1,4 @@
 export interface CronInputProps {
-    foo: string
+    defaultCron?: string
+    defaultScript?: string
 }

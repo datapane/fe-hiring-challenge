@@ -6,10 +6,6 @@ import CronInput from '../components/CronInput.vue';
 const meta = {
     component: CronInput,
     tags: ['autodocs'],
-    argTypes: {
-        foo: {control: 'text'},
-    },
-    args: { foo: 'bar' }, // default value
 } satisfies Meta<typeof CronInput>;
 
 export default meta;
@@ -17,6 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        foo: 'bar',
+        defaultCron: '* * * * *',
+        defaultScript: './test/test-script.bat',
     },
 };
