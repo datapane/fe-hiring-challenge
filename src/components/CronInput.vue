@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <form class="container" @submit.prevent="onSubmit">
     <label class="label">
       Cron time
       <input name="cron time" v-model="cron" class="input" :class="{invalid: !isValid}" placeholder="* * * * *">
@@ -8,10 +8,11 @@
       Script/Job
       <input name="script path" v-model="job" class="input" placeholder="./path/to/script.bat" />
     </label>
-    <button class="button" :disabled="!cron || !isValid || !job">
+    <button class="button" :class="{submitting: isSubmitting}" type="submit" :disabled="!cron || !isValid || !job">
       Submit
+      <span v-if="isSubmitting" class="spinner" />
     </button>
-  </div>
+  </form>
 
   <small v-if="showNext" class="cron-next">Next cron run: {{ nextCron ?? 'undefined' }}</small>
 
@@ -53,6 +54,15 @@ watch(cron, () => {
   }
 });
 
+const isSubmitting = ref(false);
+
+const onSubmit = () => {
+  isSubmitting.value = true;
+  console.log(`Submitting '${cron.value} ${job.value}' to ${props.to}`);
+  // Dupe actual submission to API
+  setTimeout(() => isSubmitting.value = false, 1000);
+}
+
 </script>
 
 <style scoped lang="postcss">
@@ -77,11 +87,15 @@ watch(cron, () => {
 }
 
 .button {
-  @apply mx-1 text-white bg-gray-400 border border-gray-400 px-4 py-1 rounded
+  @apply relative mx-1 text-white bg-gray-400 border border-gray-400 px-4 py-1 rounded flex justify-center items-center
 }
 
 .button:not(:disabled) {
   @apply bg-green-500 border-green-500
+}
+
+.button.submitting {
+  @apply pointer-events-none
 }
 
 .cron-text {
@@ -96,4 +110,7 @@ watch(cron, () => {
   @apply text-sm block text-blue-900 antialiased
 }
 
+.spinner {
+  @apply h-[16px] w-[16px] block border border-gray-300 border-t-white rounded-full animate-spin ml-2
+}
 </style>

@@ -13,6 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
+        to: 'example.api/endpoint',
         defaultCron: '* * * * *',
         defaultScript: './test/test-script.bat',
         showNext: true,
