@@ -4,7 +4,7 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     {
-      name: '@storybook/addon-postcss',
+      name: '@storybook/addon-styling',
       options: {
         cssLoaderOptions: {
           importLoaders: 1,
