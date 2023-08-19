@@ -9,5 +9,11 @@ export function cronToText(value: string): string {
      * NPM packages should be wrapped in our own functions in case they are ever updated
      * or change for our own code.
      */
-    return cronstrue.toString(value);
+    try {
+        return cronstrue.toString(value);
+    } catch (err) {
+        console.error(err);
+        return 'err';
+    }
+
 }

@@ -13,6 +13,6 @@ export function getNextCron(value: string): string {
         return cronParser.parseExpression(value).next().toString();
     } catch (err) {
         console.error(err);
-        return 'err'
+        return 'err';
     }
 }
