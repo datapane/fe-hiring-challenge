@@ -1,26 +1,28 @@
 <template>
-  <form class="container" @submit.prevent="onSubmit">
-    <label class="label">
-      Cron Time
-      <input name="cron time" v-model="cron" class="input" :class="{invalid: !isValid}" placeholder="* * * * *">
-    </label>
-    <label class="label">
-      Script/Job
-      <input name="script path" v-model="job" class="input" placeholder="./path/to/script.bat" />
-    </label>
-    <button class="button" :class="{submitting: isSubmitting}" type="submit" :disabled="!cron || !isValid || !job">
-      Submit
-      <span v-if="isSubmitting" class="spinner" />
-    </button>
-  </form>
+  <div>
+    <form class="container" @submit.prevent="onSubmit">
+      <label class="label">
+        Cron Time
+        <input name="cron time" v-model="cron" class="input" :class="{invalid: !isValid}" placeholder="* * * * *">
+      </label>
+      <label class="label">
+        Script/Job
+        <input name="script path" v-model="job" class="input" placeholder="./path/to/script.bat" />
+      </label>
+      <button class="button" :class="{submitting: isSubmitting}" type="submit" :disabled="!cron || !isValid || !job">
+        Submit
+        <span v-if="isSubmitting" class="spinner" />
+      </button>
+    </form>
 
-  <small v-if="showNext" class="cron-next">Next run: {{ nextCron ?? 'undefined' }}</small>
+    <small v-if="showNext" class="cron-next">Next run: {{ nextCron ?? 'undefined' }}</small>
 
-  <InfoMessage
-      v-show="showText"
-      :text="cronText ? `Cron will run: ${cronText}` : 'Invalid cron string'"
-      :is-error="!cronText"
-  />
+    <InfoMessage
+        v-show="showText"
+        :text="cronText ? `Cron will run: ${cronText}` : 'Invalid cron string'"
+        :is-error="!cronText"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -65,11 +67,11 @@ const onSubmit = () => {
 
 <style scoped lang="postcss">
 .container {
-  @apply -mx-1 flex items-end
+  @apply -mx-1 w-full flex flex-col justify-stretch md:flex-row md:items-end
 }
 
 .label {
-  @apply mx-1 flex flex-col
+  @apply mx-1 mb-2 flex flex-col
 }
 
 .label .input {
@@ -85,7 +87,7 @@ const onSubmit = () => {
 }
 
 .button {
-  @apply relative mx-1 text-white bg-gray-400 border border-gray-400 px-4 py-1 rounded flex justify-center items-center
+  @apply relative mx-1 mb-2 text-white bg-gray-400 border border-gray-400 px-4 py-1 rounded flex justify-center items-center
 }
 
 .button:not(:disabled) {
