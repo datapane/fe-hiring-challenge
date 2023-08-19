@@ -6,9 +6,6 @@ import CronInput from '../components/CronInput.vue';
 const meta = {
     component: CronInput,
     tags: ['autodocs'],
-    argTypes: {
-        showText: { control: 'boolean' },
-    },
 } satisfies Meta<typeof CronInput>;
 
 export default meta;
