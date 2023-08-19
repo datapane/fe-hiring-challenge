@@ -8,7 +8,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         to: {
-            description: 'The API endpoint to submit the schedule request to',
+            description: 'The API endpoint to submit the schedule request to (disabled in example)',
         },
         defaultCron: {
             description: 'The default cron time to display in the cron input',

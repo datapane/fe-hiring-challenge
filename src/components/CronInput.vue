@@ -1,7 +1,7 @@
 <template>
   <form class="container" @submit.prevent="onSubmit">
     <label class="label">
-      Cron time
+      Cron Time
       <input name="cron time" v-model="cron" class="input" :class="{invalid: !isValid}" placeholder="* * * * *">
     </label>
     <label class="label">
@@ -14,7 +14,7 @@
     </button>
   </form>
 
-  <small v-if="showNext" class="cron-next">Next cron run: {{ nextCron ?? 'undefined' }}</small>
+  <small v-if="showNext" class="cron-next">Next run: {{ nextCron ?? 'undefined' }}</small>
 
   <div v-show="showText" class="cron-text" :class="{error: !cronText}">
     <template v-if="cronText">
