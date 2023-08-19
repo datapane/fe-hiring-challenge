@@ -1,50 +1,67 @@
 # FE Hiring Challenge
 
-# Introduction
+## Candidate - Matt Evans
 
-Datapane is being developed with a typical FE / BE split, where,
-- the FE is an SPA built using Vue3, Typescript, Pinia, Quasar, and more
-- the BE is a Django / Python web app that serves REST APIs
+### Installation
 
-This challenge involves building a Vue component of the type we have to build and implement within the Datapane SPA for use within the BE. As an early-stage startup, we often have to work without fully complete specs and like to provide opportunities for developers to make their own choices rather than micromanage - we attempt to recreate that process here.
+To install the project with npm, run the following command:
 
-# Task
+```
+npm ci
+```
 
-For this task we'll be building a single Vue component that allows a user to set a recurring date and time for an event to occur, such as triggering an automated report generation event.
+This will ensure npm uses the package-lock file to install dependencies, avoiding any possible errors from mis-matched
+package versions.
 
-This component should accept the schedule using a `cron`-like textual entry format.
+### Viewing the Component
 
-The component should validate the input and present the schedule to the user in an intuitive form. The manner this could take is left as an open-ended exercise for the reader, with credit given to the UX and ease-of-use of the component alongside the general execution, implementation, and extension of this concept.
+To view the component in a Storybook instance:
 
-Some sample ideas could be, but not limited to,
-- Representing the schedule within a calendar widget
-- Representing the schedule as a easy-to-read sentence
-- Providing live syntax highlighting and debug/error messages regarding the `cron`-input string
-- Anything else that you think a user would benefit from
+```
+npm run storybook
+```
 
-## Technologies
+This will run a local server on port 6006 (if available), and automatically open storybook in the browser, where the
+component can be viewed independently and its props changed.
 
-- Vue3
-- Typescript
-- Any CSS / component library of your choice, however we would not look as highly at a submission that uses a fully prebuilt component that implements this task
-- [Storybook](https://storybook.js.org/) or [Histoire](https://histoire.dev/) to showcase and present your component
-- Build systems and scripts of your choice, e.g. `vite`, `rollup`, etc.
-- Any other FE libraries you may find useful to help your task - we prioritize using existing libraries to accomplish tasks rather than building in-house
+To view the component stand alone:
 
-## Requirements
+```
+npm run dev
+```
 
-- Whilst we recommend using a CSS or Component library, we advise exercising judgment in not picking an existing `cron`-like component off-the-shelf that implements the task entirely
-- The component should be styled well and look complete
-- The component should be standalone and presented via Storybook or Historie
-- Instructions should be provided on how to build / bundle / start the system
-- Comments, tests, and documentation are strongly encouraged
+This will run a local development server and automatically open the browser, displaying the Vue app containing only the
+component
 
-# Review
+### Running Tests
 
-This task is deliberately open-ended, we encourage experimentation and extension of the component and concept.
+To run any test files contained within the project:
 
-Please don't spend more than 2-4 hours on this - we're looking to see how you approached the problem and the decisions made rather than a complete solution. This should be a fun challenge rather than a stressful endeavor.
+```
+npm run test
+```
 
-There is no right answer as such, we will mainly be looking at code quality, software architecture skills, completeness of the solution from a software engineering perspective, and clarity of thought.
+This will execute any test files included in the project using Vitest and output the results in the terminal.
 
-Once completed, please create a PR containing your work (or a private fork / zip file), send us an email, and book a second follow-up interview via the link in the previous email.
+### Todo List
+
+This is a list of features or nice-to-haves if I ever come back to this component:
+
+- `isValidCron` should return a tuple `[result, errors]`, where the second value is an object displaying which of the
+  five values are incorrect:
+    ```js
+    const result = [false, {
+      '0': false,
+      '1': false,
+      '2': true,
+      '3': true,
+      '4': false,
+    }];
+    ```
+- Better mobile styling - there is a minor extra padding on the right edge of the `CronInput`
+- Display prompted cron schedule in mini-calendar format (considered doing this with SVGs, but didn't think I'd complete
+  it within the 4-hour time frame)
+- Refactor out form label+input components for re-usability
+- Refactor out submit button to custom button component w/ loading prop
+- Replace Script/Job input with dropdown of specific named jobs (for non-technical users)
+- Include tooltip with Cron Time input, showing cron format
