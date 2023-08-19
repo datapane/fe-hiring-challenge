@@ -16,14 +16,11 @@
 
   <small v-if="showNext" class="cron-next">Next run: {{ nextCron ?? 'undefined' }}</small>
 
-  <div v-show="showText" class="cron-text" :class="{error: !cronText}">
-    <template v-if="cronText">
-      Cron will run: {{ cronText }}
-    </template>
-    <template v-else>
-      Invalid cron string
-    </template>
-  </div>
+  <InfoMessage
+      v-show="showText"
+      :text="cronText ? `Cron will run: ${cronText}` : 'Invalid cron string'"
+      :is-error="!cronText"
+  />
 </template>
 
 <script setup lang="ts">
@@ -32,6 +29,7 @@ import { CronInputProps } from "../interfaces/components/CronInputProps";
 import { isValidCron } from "../utils/isValidCron";
 import { cronToText } from "../utils/cronToText"
 import { getNextCron } from "../utils/getNextCron.ts"
+import InfoMessage from "./InfoMessage.vue"
 
 const props = defineProps<CronInputProps>();
 
@@ -96,14 +94,6 @@ const onSubmit = () => {
 
 .button.submitting {
   @apply pointer-events-none
-}
-
-.cron-text {
-  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r inline-block pl-2 pr-4 py-2 mt-2 text-xl antialiased
-}
-
-.cron-text.error {
-  @apply border-red-600 text-red-600 bg-red-100
 }
 
 .cron-next {
