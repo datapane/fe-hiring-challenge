@@ -12,7 +12,8 @@ defineProps<InfoMessageProps>();
 
 <style scoped lang="postcss">
 .info-message {
-  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r inline-block pl-2 pr-4 py-2 mt-2 text-xl antialiased
+  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r inline-block pl-2 pr-4 py-2 mt-2
+  md:text-xl antialiased
 }
 
 .info-message.error {
