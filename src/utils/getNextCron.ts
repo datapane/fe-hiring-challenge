@@ -9,5 +9,10 @@ export function getNextCron(value: string): string {
      * NPM packages should be wrapped in our own functions in case they are ever updated
      * or change for our own code.
      */
-    return cronParser.parseExpression(value).next().toString();
+    try {
+        return cronParser.parseExpression(value).next().toString();
+    } catch (err) {
+        console.error(err);
+        return 'err'
+    }
 }
