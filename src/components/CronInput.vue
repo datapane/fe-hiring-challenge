@@ -5,13 +5,16 @@
       <input name="cron time" v-model="cron" class="input" :class="{invalid: !isValid}" placeholder="* * * * *">
     </label>
     <label class="label">
-      Script
+      Script/Job
       <input name="script path" v-model="job" class="input" placeholder="./path/to/script.bat" />
     </label>
     <button class="button" :disabled="!cron || !isValid || !job">
       Submit
     </button>
   </div>
+
+  <small v-if="showNext" class="cron-next">Next cron run: {{ nextCron ?? 'undefined' }}</small>
+
   <div v-show="showText" class="cron-text" :class="{error: !cronText}">
     <template v-if="cronText">
       Cron will run: {{ cronText }}
@@ -27,6 +30,7 @@ import { ref, watch } from "vue";
 import { CronInputProps } from "../interfaces/components/CronInputProps";
 import { isValidCron } from "../utils/isValidCron";
 import { cronToText } from "../utils/cronToText"
+import { getNextCron } from "../utils/getNextCron.ts"
 
 const props = defineProps<CronInputProps>();
 
@@ -35,14 +39,17 @@ const isValid = ref(true);
 const job = ref(props.defaultScript ?? '');
 
 const cronText = ref(props.defaultCron ? cronToText(props.defaultCron) : null);
+const nextCron = ref(props.defaultCron ? getNextCron(props.defaultCron) : null);
 
 watch(cron, () => {
   isValid.value = cron.value === '' || isValidCron(cron.value);
 
   if (isValidCron(cron.value)) {
     cronText.value = cronToText(cron.value);
+    nextCron.value = getNextCron(cron.value);
   } else {
     cronText.value = null;
+    nextCron.value = null;
   }
 });
 
@@ -78,10 +85,15 @@ watch(cron, () => {
 }
 
 .cron-text {
-  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r-xl inline-block pl-2 pr-4 py-2 mt-2 text-xl antialiased
+  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r inline-block pl-2 pr-4 py-2 mt-2 text-xl antialiased
 }
 
 .cron-text.error {
   @apply border-red-600 text-red-600 bg-red-100
 }
+
+.cron-next {
+  @apply text-sm block text-blue-900 antialiased
+}
+
 </style>

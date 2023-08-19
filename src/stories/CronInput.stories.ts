@@ -15,6 +15,7 @@ export const Default: Story = {
     args: {
         defaultCron: '* * * * *',
         defaultScript: './test/test-script.bat',
+        showNext: true,
         showText: true,
     },
 };

@@ -12,6 +12,7 @@
     "test": "vitest --run"
   },
   "dependencies": {
+    "cron-parser": "^4.9.0",
     "cronstrue": "^2.31.0",
     "vue": "^3.3.4"
   },
