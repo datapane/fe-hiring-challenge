@@ -8,7 +8,17 @@
       Script
       <input name="script path" v-model="job" class="input" placeholder="./path/to/script.bat" />
     </label>
-    <button class="button" :class="{active:cron && isValid && job}">Submit</button>
+    <button class="button" :disabled="!cron || !isValid || !job">
+      Submit
+    </button>
+  </div>
+  <div v-show="showText" class="cron-text" :class="{error: !cronText}">
+    <template v-if="cronText">
+      Cron will run: {{ cronText }}
+    </template>
+    <template v-else>
+      Invalid cron string
+    </template>
   </div>
 </template>
 
@@ -16,14 +26,24 @@
 import { ref, watch } from "vue";
 import { CronInputProps } from "../interfaces/components/CronInputProps";
 import { isValidCron } from "../utils/isValidCron";
+import { cronToText } from "../utils/cronToText"
 
 const props = defineProps<CronInputProps>();
 
 const cron = ref(props.defaultCron ?? '');
 const isValid = ref(true);
 const job = ref(props.defaultScript ?? '');
+
+const cronText = ref(props.defaultCron ? cronToText(props.defaultCron) : null);
+
 watch(cron, () => {
   isValid.value = cron.value === '' || isValidCron(cron.value);
+
+  if (isValidCron(cron.value)) {
+    cronText.value = cronToText(cron.value);
+  } else {
+    cronText.value = null;
+  }
 });
 
 </script>
@@ -50,10 +70,18 @@ watch(cron, () => {
 }
 
 .button {
-  @apply mx-1 text-white bg-gray-200 border border-gray-300 px-4 py-1 rounded pointer-events-none
+  @apply mx-1 text-white bg-gray-400 border border-gray-400 px-4 py-1 rounded
 }
 
-.button.active {
-  @apply bg-green-500 border-green-500 pointer-events-auto
+.button:not(:disabled) {
+  @apply bg-green-500 border-green-500
+}
+
+.cron-text {
+  @apply border-l-2 border-amber-600 text-amber-600 bg-amber-100 rounded-r-xl inline-block pl-2 pr-4 py-2 mt-2 text-xl antialiased
+}
+
+.cron-text.error {
+  @apply border-red-600 text-red-600 bg-red-100
 }
 </style>
