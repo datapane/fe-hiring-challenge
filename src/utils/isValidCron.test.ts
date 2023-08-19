@@ -30,6 +30,10 @@ describe('minutes', () => {
         expect(isValidCron('0-30 * * * *')).toBe(true);
     });
 
+    test('reject invalid range', () => {
+        expect(isValidCron('30-0 * * * *')).toBe(false);
+    });
+
     test('accept step', () => {
         expect(isValidCron('0/30 * * * *')).toBe(true);
     });
@@ -55,6 +59,10 @@ describe('hours', () => {
 
     test('accept range', () => {
         expect(isValidCron('* 0-12 * * *')).toBe(true);
+    });
+
+    test('reject invalid range', () => {
+        expect(isValidCron('* 12-1 * * *')).toBe(false);
     });
 
     test('accept step', () => {
@@ -84,6 +92,10 @@ describe('days (month)', () => {
         expect(isValidCron('* * 1-15 * *')).toBe(true);
     });
 
+    test('reject invalid range', () => {
+        expect(isValidCron('* * 15-1 * *')).toBe(false);
+    });
+
     test('accept step', () => {
         expect(isValidCron('* * 1/15 * *')).toBe(true);
     });
@@ -109,6 +121,10 @@ describe('months', () => {
 
     test('accept range', () => {
         expect(isValidCron('* * * 1-6 *')).toBe(true);
+    });
+
+    test('reject invalid range', () => {
+        expect(isValidCron('* * * 6-1 *')).toBe(false);
     });
 
     test('accept step', () => {
@@ -142,6 +158,10 @@ describe('days(week)', () => {
 
     test('accept range', () => {
         expect(isValidCron('* * * * 3-6')).toBe(true);
+    });
+
+    test('reject invalid range', () => {
+        expect(isValidCron('* * * * 6-3')).toBe(false);
     });
 
     test('accept step', () => {

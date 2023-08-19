@@ -9,6 +9,16 @@ function includesCronSymbols(value: string) {
 }
 
 /**
+ * Ensure range values in correct order, i.e. A-B where A < B
+ */
+function validateRange(value: string) {
+    return value.match(/\d*-\d*/)?.every(x => {
+        const values = x.split('-');
+        return parseInt(values[0]) < parseInt(values[1])
+    }) ?? true;
+}
+
+/**
  * Splits string via cron symbols and validates each value use predicate
  */
 function validateMultiple(value: string, predicate: (x: string) => boolean) {
@@ -20,7 +30,7 @@ function validateMultiple(value: string, predicate: (x: string) => boolean) {
  */
 function validateMinutes(value: string): boolean {
     if (includesCronSymbols(value)) {
-        return validateMultiple(value, validateMinutes);
+        return validateRange(value) && validateMultiple(value, validateMinutes);
     }
 
     return value === '*' || (parseInt(value) >= 0 && parseInt(value) <= 59);
@@ -31,7 +41,7 @@ function validateMinutes(value: string): boolean {
  */
 function validateHours(value: string): boolean {
     if (includesCronSymbols(value)) {
-        return validateMultiple(value, validateHours);
+        return validateRange(value) && validateMultiple(value, validateHours);
     }
 
     return value === '*' || (parseInt(value) >= 0 && parseInt(value) <= 23);
@@ -42,7 +52,7 @@ function validateHours(value: string): boolean {
  */
 function validateDays(value: string): boolean {
     if (includesCronSymbols(value)) {
-        return validateMultiple(value, validateDays);
+        return validateRange(value) && validateMultiple(value, validateDays);
     }
 
     return value === '*' || (parseInt(value) >= 1 && parseInt(value) <= 31);
@@ -53,7 +63,7 @@ function validateDays(value: string): boolean {
  */
 function validateMonths(value: string): boolean {
     if (includesCronSymbols(value)) {
-        return validateMultiple(value, validateMonths);
+        return validateRange(value) && validateMultiple(value, validateMonths);
     }
 
     return value === '*' || (parseInt(value) >= 1 && parseInt(value) <= 12) || VALID_MONTHS.includes(value.toLowerCase());
@@ -65,7 +75,7 @@ function validateMonths(value: string): boolean {
  */
 function validateWeekdays(value: string): boolean {
     if (includesCronSymbols(value)) {
-        return validateMultiple(value, validateWeekdays);
+        return validateRange(value) && validateMultiple(value, validateWeekdays);
     }
 
     return value === '*' || (parseInt(value) >= 0 && parseInt(value) <= 6) || VALID_DAYS.includes(value.toLowerCase());
