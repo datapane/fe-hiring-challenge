@@ -73,7 +73,7 @@ watch(cron, () => {
 }
 
 .input.invalid {
-  @apply border-red-600 focus:border-red-600
+  @apply border-red-600 focus:border-red-600 animate-shudder
 }
 
 .button {
