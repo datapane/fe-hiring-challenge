@@ -1,0 +1,67 @@
+{
+  "name": "event-scheduler-component",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/event-scheduler-component.umd.cjs",
+  "module": "./dist/event-scheduler-component.js",
+  "exports": {
+    ".": {
+      "import": "./dist/event-scheduler-component.js",
+      "require": "./dist/event-scheduler-component.umd.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build && vue-tsc",
+    "types": "vue-tsc",
+    "storybook": "storybook dev -p 6006",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier .  --write",
+    "test:unit": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.5",
+    "quasar": "^2.12.5",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.4.1",
+    "@storybook/addon-essentials": "^7.3.2",
+    "@storybook/addon-interactions": "^7.3.2",
+    "@storybook/addon-links": "^7.3.2",
+    "@storybook/blocks": "^7.3.2",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/vue3": "^7.3.2",
+    "@storybook/vue3-vite": "^7.3.2",
+    "@types/node": "^20.5.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitest/coverage-v8": "^0.34.2",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vue/test-utils": "^2.4.1",
+    "cron-converter": "^2.0.1",
+    "cron-validate": "^1.4.5",
+    "cronstrue": "^2.31.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "jsdom": "^22.1.0",
+    "pinia": "^2.1.6",
+    "prettier": "3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.32.12",
+    "storybook": "^7.3.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^0.34.2",
+    "vue-tsc": "^1.8.5"
+  }
+}
