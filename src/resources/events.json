@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "cron": "0 0 * * 2",
+      "action": "/root/backup.sh",
+      "description": "Perform a backup at midnight every Tuesday."
+    },
+    {
+      "id": 2,
+      "cron": "* * * 1,2,5 *",
+      "action": "/scripts/monitor.sh",
+      "description": "Perform monitoring every minute in January, February, and May."
+    },
+    {
+      "id": 3,
+      "cron": "10-59/10 5 * * *",
+      "action": "/root/clearcache.sh",
+      "description": "Clear the cache every 10 minutes at 5 am, starting from 5:10 am."
+    }
+  ]
+}
